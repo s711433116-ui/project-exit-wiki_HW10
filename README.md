@@ -2,13 +2,15 @@
 
 Project E.X.I.T. 是一個「AI 驅動 2D 撤離生存遊戲」的開發知識網站。
 
-本專案不是單純完成一個網頁，而是透過 `AGENTS.md` 建立一套可重複使用的專案規範，讓 AI 未來可以依相同方式持續新增遊戲系統、AI 模組、地圖、NPC 與開發紀錄。
+本網站以 `AGENTS.md` 作為開發規範，統一管理頁面結構、命名方式、視覺風格與內容格式，並支援後續新增遊戲系統、AI 模組、地圖、NPC 與開發紀錄。
 
 ## Live Site
 
-GitHub Pages 啟用後，請將網址填在這裡：
+https://s711433116-ui.github.io/project-exit-wiki_HW10/
 
-`https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/`
+## Repository
+
+https://github.com/s711433116-ui/project-exit-wiki_HW10
 
 ## Repository Structure
 
@@ -54,7 +56,7 @@ GitHub Pages 啟用後，請將網址填在這裡：
 - AI 修改流程
 - Definition of Done
 
-例如未來要新增 `Combat System`，AI 讀取 `AGENTS.md` 後即可知道：
+以新增 `Combat System` 為例，`AGENTS.md` 已定義以下處理方式：
 
 1. 建立 `/pages/combat-system.html`
 2. 使用 System Page 固定模板
@@ -87,24 +89,14 @@ http://localhost:8000
 4. Source 選擇 `Deploy from a branch`。
 5. Branch 選擇 `main`，folder 選 `/ (root)`。
 6. 儲存後等待 GitHub Pages 建立公開網址。
-7. 將公開網址填回本 README 與作業繳交內容。
+7. 部署完成後確認首頁與各內容頁皆可正常瀏覽。
 
-## Assignment Submission Checklist
-
-- [ ] 專案簡介
-- [ ] GitHub Repository 連結
-- [ ] GitHub Pages 網頁連結
-- [ ] `AGENTS.md`
-- [ ] 延伸性說明
-- [ ] 網站可正常瀏覽
-- [ ] 至少一個內容頁
-- [ ] Repository 為公開可讀
 
 ## Extension Example
 
-如果未來要增加 `Medical Center`：
+### Medical Center 頁面範例
 
-AI 應先讀取 `AGENTS.md`，判斷它屬於 World / Map Page，建立：
+`Medical Center` 屬於 World / Map Page，依規範建立：
 
 ```text
 pages/medical-center.html
@@ -119,4 +111,4 @@ pages/medical-center.html
 - Threats
 - Related Missions
 
-因此，新內容不需要每次重新設計網站結構，可以持續沿用既有規則擴充。
+透過固定的 Page Type 與內容模板，新頁面可沿用既有結構與樣式持續擴充。

@@ -263,10 +263,10 @@ AI 技術必須說明「為什麼需要」及「在遊戲中負責什麼」。
 
 例如：
 
-不好：
+不建議：
 > 本專案使用 RAG、Planning、Reflection。
 
-較好：
+建議格式：
 > RAG 用於讓 NPC 在回答世界觀問題前先檢索遊戲知識庫，降低憑空生成與角色資訊不一致。
 
 ---
@@ -349,11 +349,9 @@ AI 修改頁面時必須：
 
 ## 16. Example Extension Task
 
-如果使用者要求：
+範例任務：新增 Combat System 頁面。
 
-> 新增 Combat System 頁面。
-
-AI 應該：
+執行規則：
 
 1. 建立 `/pages/combat-system.html`。
 2. 使用 System Page 模板。
