@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Project E.X.I.T. Game Design Wiki">
+<title>核心遊戲循環｜Project E.X.I.T.</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="../index.html" aria-label="Project E.X.I.T. 首頁">
+      <span class="brand-mark">EX</span>
+      <span>PROJECT E.X.I.T.<small>GAME DESIGN WIKI</small></span>
+    </a>
+    <button class="menu-btn" aria-label="開啟導覽選單" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="主要導覽">
+      <a href="../index.html">首頁</a>
+      <a href="../pages/gameplay.html">遊戲循環</a>
+      <a href="../pages/ai-director.html">AI Director</a>
+      <a href="../pages/architecture.html">技術架構</a>
+      <a href="../pages/roadmap.html">Roadmap</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> / 遊戲循環</div>
+    <div class="kicker">System Page</div>
+    <h1>核心遊戲循環</h1>
+    <p class="lead">以「準備、探索、承擔風險、撤離、成長」形成可重複遊玩的 Extraction Loop。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container content-layout">
+    <aside class="toc">
+      <strong>本頁內容</strong>
+      <a href="#overview">Overview</a>
+      <a href="#purpose">Purpose</a>
+      <a href="#how">How It Works</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#example">Example</a>
+      <a href="#related">Related Systems</a>
+    </aside>
+
+    <article class="article">
+      <section id="overview">
+        <div class="kicker">01 Overview</div><h2>系統概述</h2>
+        <p>玩家每次從基地選擇裝備並接取任務，進入危險區域後進行探索、搜刮與戰鬥。玩家必須在「繼續深入取得更多資源」與「帶著現有戰利品撤離」之間做決策。</p>
+      </section>
+
+      <section id="purpose">
+        <div class="kicker">02 Purpose</div><h2>設計目的</h2>
+        <p>遊戲的主要張力不是單純擊敗敵人，而是讓玩家持續評估風險。背包越滿、任務越深入，潛在收益越高，但死亡時的損失也會增加。</p>
+        <div class="notice">核心問題：現在離開已經有收穫，還是再冒一次風險換取更高價值？</div>
+      </section>
+
+      <section id="how">
+        <div class="kicker">03 How It Works</div><h2>系統構成</h2>
+        <div class="grid grid-2">
+          <div class="card"><h3>基地準備</h3><p>管理倉庫、選擇裝備、查看任務並決定本局 Loadout。</p></div>
+          <div class="card"><h3>地圖探索</h3><p>在 2D 地圖中移動、探索區域、搜尋箱子與完成目標。</p></div>
+          <div class="card"><h3>戰鬥與資源</h3><p>敵人、生命值、彈藥、醫療與背包容量共同限制行動。</p></div>
+          <div class="card"><h3>撤離與結算</h3><p>抵達撤離點後才可保留本局戰利品並返回基地。</p></div>
+        </div>
+      </section>
+
+      <section id="workflow">
+        <div class="kicker">04 Workflow</div><h2>遊戲流程</h2>
+        <div class="diagram">
+          <div class="diagram-row">
+            <div class="diagram-box">基地準備</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box">接受任務</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box game">探索 / 搜刮</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box warn">繼續 / 撤離</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box">結算成長</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="example">
+        <div class="kicker">05 Example</div><h2>遊戲案例</h2>
+        <p>玩家已完成主要任務，但背包仍有 4 格空間。此時 AI Director 可能提供新的高價值支線資訊。玩家可選擇接受風險繼續深入，或保留目前戰利品直接撤離。</p>
+      </section>
+
+      <section id="related">
+        <div class="kicker">06 Related Systems</div><h2>相關系統</h2>
+        <div class="actions">
+          <a class="btn btn-secondary" href="ai-director.html">AI Director</a>
+          <a class="btn btn-secondary" href="architecture.html">AI 技術架構</a>
+          <a class="btn btn-secondary" href="roadmap.html">開發 Roadmap</a>
+        </div>
+      </section>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>Project E.X.I.T.</strong><br>
+      <span>AI-Driven Extraction Survival Game Design Wiki</span>
+    </div>
+    <div>© <span data-year></span> Project E.X.I.T. · Built for GitHub Pages</div>
+  </div>
+</footer>
+<button class="back-top" aria-label="回到頁首">↑</button>
+<script src="../js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Project E.X.I.T. Game Design Wiki">
+<title>首頁｜Project E.X.I.T.</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="index.html" aria-label="Project E.X.I.T. 首頁">
+      <span class="brand-mark">EX</span>
+      <span>PROJECT E.X.I.T.<small>GAME DESIGN WIKI</small></span>
+    </a>
+    <button class="menu-btn" aria-label="開啟導覽選單" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="主要導覽">
+      <a href="index.html">首頁</a>
+      <a href="pages/gameplay.html">遊戲循環</a>
+      <a href="pages/ai-director.html">AI Director</a>
+      <a href="pages/architecture.html">技術架構</a>
+      <a href="pages/roadmap.html">Roadmap</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">AI-Driven Extraction Survival Game</div>
+      <h1>PROJECT<br>E.X.I.T.</h1>
+      <p class="lead">
+        一個結合撤離、生存、搜刮與生成式 AI 的 2D 遊戲企劃。
+        本網站用來持續整理遊戲系統、AI 架構與開發規格，
+        並透過 <strong>AGENTS.md</strong> 讓 AI 能依相同規則持續擴充內容。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="pages/gameplay.html">探索遊戲設計 →</a>
+        <a class="btn btn-secondary" href="pages/architecture.html">查看 AI 架構</a>
+      </div>
+    </div>
+
+    <div class="terminal reveal" aria-label="專案開發狀態">
+      <div class="terminal-top">
+        <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
+      </div>
+      <div class="terminal-body">
+        <div style="color:#43d5ff;margin-bottom:12px">$ project-exit --status</div>
+        <div class="status-row"><span>Game Design</span><span class="status online">ONLINE</span></div>
+        <div class="status-row"><span>AI Director</span><span class="status prototype">PROTOTYPE</span></div>
+        <div class="status-row"><span>RAG NPC</span><span class="status planned">PLANNED</span></div>
+        <div class="status-row"><span>Combat System</span><span class="status planned">PLANNED</span></div>
+        <div class="status-row"><span>Extraction Loop</span><span class="status prototype">DESIGNING</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker">Core Concept</div>
+        <h2>核心遊戲循環</h2>
+      </div>
+      <p>玩家從基地準備出發，在危險區域中探索、搜刮與戰鬥，再自行判斷何時撤離。成功撤離的資源將回到基地，形成下一局的成長基礎。</p>
+    </div>
+
+    <div class="flow reveal" aria-label="核心遊戲循環圖">
+      <div class="flow-node">基地準備</div><div class="flow-arrow">→</div>
+      <div class="flow-node">進入地圖</div><div class="flow-arrow">→</div>
+      <div class="flow-node">探索搜刮</div><div class="flow-arrow">→</div>
+      <div class="flow-node">撤離 / 結算</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker">Design Wiki</div>
+        <h2>目前內容</h2>
+      </div>
+      <p>每一個系統頁都遵守同一組內容結構與視覺規則，後續可依 AGENTS.md 持續新增。</p>
+    </div>
+
+    <div class="grid grid-3">
+      <article class="card system-card reveal">
+        <div class="icon">🎮</div><div class="number">SYSTEM 01</div>
+        <h3>核心遊戲循環</h3>
+        <p>基地、探索、搜刮、戰鬥、背包、撤離與風險報酬之間的關係。</p>
+        <div class="tag-row"><span class="tag">Gameplay</span><span class="tag">Extraction</span></div>
+        <a class="card-link" href="pages/gameplay.html">查看系統 →</a>
+      </article>
+
+      <article class="card system-card reveal">
+        <div class="icon">🧠</div><div class="number">SYSTEM 02</div>
+        <h3>AI Director</h3>
+        <p>讀取 Game State，動態決定任務、事件、風險提示與支線內容。</p>
+        <div class="tag-row"><span class="tag">Agent</span><span class="tag">Dynamic Event</span></div>
+        <a class="card-link" href="pages/ai-director.html">查看系統 →</a>
+      </article>
+
+      <article class="card system-card reveal">
+        <div class="icon">⚙️</div><div class="number">SYSTEM 03</div>
+        <h3>AI 技術架構</h3>
+        <p>整合 Tool Use、RAG、Planning、Reflection 與 Agent Workflow。</p>
+        <div class="tag-row"><span class="tag">RAG</span><span class="tag">Tool Use</span><span class="tag">Planning</span></div>
+        <a class="card-link" href="pages/architecture.html">查看架構 →</a>
+      </article>
+
+      <article class="card system-card reveal">
+        <div class="icon">🗺️</div><div class="number">DEVELOPMENT</div>
+        <h3>開發 Roadmap</h3>
+        <p>從可玩的 MVP 開始，再逐步增加 RAG NPC、Reflection 與玩家行為分析。</p>
+        <div class="tag-row"><span class="tag">MVP</span><span class="tag">Roadmap</span></div>
+        <a class="card-link" href="pages/roadmap.html">查看規劃 →</a>
+      </article>
+
+      <article class="card dashed-card reveal">
+        <div>
+          <div style="font-size:2rem;color:#43d5ff">＋</div>
+          <h3>更多系統持續加入</h3>
+          <p>Combat、Inventory、Map、NPC、World Lore…</p>
+          <span class="tag">Reusable Structure</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid-2">
+    <article class="card reveal">
+      <div class="kicker">Why AI?</div>
+      <h2>AI 不只是聊天視窗</h2>
+      <p>
+        AI 會讀取玩家當下 HP、背包容量、任務進度與基地資源，
+        再決定本局任務、支線事件或 NPC 回應。即使使用同一張地圖，
+        不同狀態下仍可能出現不同的內容。
+      </p>
+    </article>
+    <article class="card reveal">
+      <div class="kicker">Why AGENTS.md?</div>
+      <h2>讓網站可以持續長大</h2>
+      <p>
+        AGENTS.md 定義資料夾、命名、頁面模板、導覽更新、CSS 使用方式與內容規則。
+        未來只要讓 AI 先閱讀這份規範，就能依相同格式新增系統、地圖或 NPC 頁面。
+      </p>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>Project E.X.I.T.</strong><br>
+      <span>AI-Driven Extraction Survival Game Design Wiki</span>
+    </div>
+    <div>© <span data-year></span> Project E.X.I.T. · Built for GitHub Pages</div>
+  </div>
+</footer>
+<button class="back-top" aria-label="回到頁首">↑</button>
+<script src="js/main.js"></script>
+
+</body>
+</html>

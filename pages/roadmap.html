@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Project E.X.I.T. Game Design Wiki">
+<title>開發 Roadmap｜Project E.X.I.T.</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="../index.html" aria-label="Project E.X.I.T. 首頁">
+      <span class="brand-mark">EX</span>
+      <span>PROJECT E.X.I.T.<small>GAME DESIGN WIKI</small></span>
+    </a>
+    <button class="menu-btn" aria-label="開啟導覽選單" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="主要導覽">
+      <a href="../index.html">首頁</a>
+      <a href="../pages/gameplay.html">遊戲循環</a>
+      <a href="../pages/ai-director.html">AI Director</a>
+      <a href="../pages/architecture.html">技術架構</a>
+      <a href="../pages/roadmap.html">Roadmap</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> / Roadmap</div>
+    <div class="kicker">Development Page</div>
+    <h1>開發 Roadmap</h1>
+    <p class="lead">先確保遊戲能完整「出發 → 探索 → 撤離」，再逐步加入 AI NPC 與多 Agent 能力。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container content-layout">
+    <aside class="toc">
+      <strong>本頁內容</strong>
+      <a href="#principle">Development Principle</a>
+      <a href="#mvp">Phase 1</a><a href="#phase2">Phase 2</a>
+      <a href="#phase3">Phase 3</a><a href="#success">Success Criteria</a>
+    </aside>
+
+    <article class="article">
+      <section id="principle">
+        <div class="kicker">01 Development Principle</div><h2>先做可玩的版本</h2>
+        <p>期末專案不一次追求完整大型遊戲，而是先完成一個可正確操作的核心版本。AI 功能也採漸進式加入，避免因模型延遲或 API 問題讓基本遊戲無法運作。</p>
+      </section>
+
+      <section id="mvp">
+        <div class="kicker">02 Phase 1</div><h2>MVP：完整撤離循環</h2>
+        <div class="timeline">
+          <div class="timeline-item"><h3>可移動的 2D 地圖</h3><p>玩家移動、地圖邊界與基本碰撞。</p></div>
+          <div class="timeline-item"><h3>搜刮、背包與戰鬥</h3><p>建立基本物品、容量限制、敵人與 HP。</p></div>
+          <div class="timeline-item"><h3>任務與撤離</h3><p>完成任務後前往撤離點，成功後保留本局戰利品。</p></div>
+          <div class="timeline-item"><h3>AI 動態任務 / 事件</h3><p>讓 LLM 根據 Game State 產生有限且可驗證的內容。</p></div>
+        </div>
+      </section>
+
+      <section id="phase2">
+        <div class="kicker">03 Phase 2</div><h2>AI NPC 與 RAG</h2>
+        <p>建立世界觀、地圖與 NPC 知識庫，讓角色回答玩家問題時先檢索資料，再依照角色設定生成回應。</p>
+      </section>
+
+      <section id="phase3">
+        <div class="kicker">04 Phase 3</div><h2>進階 Agent 系統</h2>
+        <div class="grid grid-2">
+          <div class="card"><h3>Reflection</h3><p>檢查 AI 任務是否能完成、是否超出地圖物資或與 Game State 衝突。</p></div>
+          <div class="card"><h3>Planning</h3><p>將較複雜的任務拆成數個可追蹤目標。</p></div>
+          <div class="card"><h3>Player Modeling</h3><p>記錄玩家偏好與風險習慣，作為後續事件生成條件。</p></div>
+          <div class="card"><h3>基地擴充</h3><p>增加 NPC、倉庫、裝備與升級系統。</p></div>
+        </div>
+      </section>
+
+      <section id="success">
+        <div class="kicker">05 Success Criteria</div><h2>期末預期成果</h2>
+        <div class="notice">玩家能完成「基地準備 → 接受任務 → 進入地圖 → 探索 / 搜刮 / 戰鬥 → AI 事件 → 撤離 → 結算 → 返回基地」的完整流程。</div>
+      </section>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>Project E.X.I.T.</strong><br>
+      <span>AI-Driven Extraction Survival Game Design Wiki</span>
+    </div>
+    <div>© <span data-year></span> Project E.X.I.T. · Built for GitHub Pages</div>
+  </div>
+</footer>
+<button class="back-top" aria-label="回到頁首">↑</button>
+<script src="../js/main.js"></script>
+
+</body>
+</html>

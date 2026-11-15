@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Project E.X.I.T. Game Design Wiki">
+<title>AI 技術架構｜Project E.X.I.T.</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="../index.html" aria-label="Project E.X.I.T. 首頁">
+      <span class="brand-mark">EX</span>
+      <span>PROJECT E.X.I.T.<small>GAME DESIGN WIKI</small></span>
+    </a>
+    <button class="menu-btn" aria-label="開啟導覽選單" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="主要導覽">
+      <a href="../index.html">首頁</a>
+      <a href="../pages/gameplay.html">遊戲循環</a>
+      <a href="../pages/ai-director.html">AI Director</a>
+      <a href="../pages/architecture.html">技術架構</a>
+      <a href="../pages/roadmap.html">Roadmap</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> / 技術架構</div>
+    <div class="kicker">Architecture Page</div>
+    <h1>AI 技術架構</h1>
+    <p class="lead">將 Prompt Engineering、Tool Use、RAG、Planning、Reflection 與 Agent Workflow 分配到真正需要的遊戲功能。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container content-layout">
+    <aside class="toc">
+      <strong>本頁內容</strong>
+      <a href="#overview">Overview</a><a href="#layers">System Layers</a>
+      <a href="#tech">AI Techniques</a><a href="#workflow">Workflow</a>
+      <a href="#example">Example</a><a href="#boundary">System Boundary</a>
+    </aside>
+
+    <article class="article">
+      <section id="overview">
+        <div class="kicker">01 Overview</div><h2>架構原則</h2>
+        <p>AI 不負責所有事情。即時性高且規則明確的功能由一般程式處理；需要理解文字、生成內容或做高階判斷的部分才交給 LLM。</p>
+      </section>
+
+      <section id="layers">
+        <div class="kicker">02 System Layers</div><h2>三層架構</h2>
+        <div class="grid grid-3">
+          <div class="card"><h3>Game Layer</h3><p>移動、碰撞、戰鬥、背包、HP、撤離與數值計算。</p></div>
+          <div class="card"><h3>AI Director Layer</h3><p>任務、事件、情境與高階決策。</p></div>
+          <div class="card"><h3>Knowledge Layer</h3><p>世界觀、地圖、NPC、物品設定與向量檢索。</p></div>
+        </div>
+      </section>
+
+      <section id="tech">
+        <div class="kicker">03 AI Techniques</div><h2>課堂技術如何使用</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>技術</th><th>遊戲用途</th><th>角色</th></tr></thead>
+            <tbody>
+              <tr><td>Prompt Engineering</td><td>限制世界觀、NPC 個性與輸出格式。</td><td>基礎規則</td></tr>
+              <tr><td>Tool Use</td><td>查詢玩家狀態、背包、地圖與任務資料，再執行更新。</td><td>核心</td></tr>
+              <tr><td>RAG</td><td>NPC 先檢索世界觀與地圖知識再回答。</td><td>第二階段</td></tr>
+              <tr><td>Planning</td><td>將複合任務拆成可追蹤的多階段目標。</td><td>進階</td></tr>
+              <tr><td>Reflection</td><td>檢查任務能否完成、數量是否合理、是否與 Game State 矛盾。</td><td>進階</td></tr>
+              <tr><td>Agent Workflow</td><td>分離 AI Director、Quest Agent 與 NPC Agent 的責任。</td><td>整合</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="workflow">
+        <div class="kicker">04 Workflow</div><h2>概念架構</h2>
+        <div class="diagram">
+          <div class="diagram-row">
+            <div class="diagram-box">Player / UI</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box game">Game State</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box ai">AI Director</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box ai">Quest / NPC Agent</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box warn">Tool / RAG</div>
+          </div>
+        </div>
+        <div class="diagram" style="margin-top:14px">
+          <div class="diagram-row">
+            <div class="diagram-box warn">Planning</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box ai">Reflection Check</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box game">Game System Update</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box">Player Result</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="example">
+        <div class="kicker">05 Example</div><h2>Tool Use 範例</h2>
+        <p>玩家向情報 NPC 表示想找醫療用品時，LLM 不直接憑空發放物品，而是先透過工具取得目前狀態，再建立任務。</p>
+        <pre class="code">get_player_status()
+get_inventory()
+get_available_maps()
+create_quest()</pre>
+      </section>
+
+      <section id="boundary">
+        <div class="kicker">06 System Boundary</div><h2>不交給 AI 的工作</h2>
+        <p>角色移動、碰撞、HP 扣除、掉落機率與背包容量等規則應由遊戲程式控制。這可以減少 API 延遲、降低成本，也避免 LLM 產生不一致的遊戲數值。</p>
+      </section>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>Project E.X.I.T.</strong><br>
+      <span>AI-Driven Extraction Survival Game Design Wiki</span>
+    </div>
+    <div>© <span data-year></span> Project E.X.I.T. · Built for GitHub Pages</div>
+  </div>
+</footer>
+<button class="back-top" aria-label="回到頁首">↑</button>
+<script src="../js/main.js"></script>
+
+</body>
+</html>

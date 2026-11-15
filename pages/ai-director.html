@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Project E.X.I.T. Game Design Wiki">
+<title>AI Director｜Project E.X.I.T.</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">跳到主要內容</a>
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="../index.html" aria-label="Project E.X.I.T. 首頁">
+      <span class="brand-mark">EX</span>
+      <span>PROJECT E.X.I.T.<small>GAME DESIGN WIKI</small></span>
+    </a>
+    <button class="menu-btn" aria-label="開啟導覽選單" aria-expanded="false">☰</button>
+    <nav class="nav-links" aria-label="主要導覽">
+      <a href="../index.html">首頁</a>
+      <a href="../pages/gameplay.html">遊戲循環</a>
+      <a href="../pages/ai-director.html">AI Director</a>
+      <a href="../pages/architecture.html">技術架構</a>
+      <a href="../pages/roadmap.html">Roadmap</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">首頁</a> / AI Director</div>
+    <div class="kicker">AI System Page</div>
+    <h1>AI Director</h1>
+    <p class="lead">讀取玩家當下 Game State，動態產生任務、事件與風險提示，讓 AI 成為遊戲機制的一部分。</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container content-layout">
+    <aside class="toc">
+      <strong>本頁內容</strong>
+      <a href="#overview">Overview</a><a href="#purpose">Purpose</a>
+      <a href="#how">How It Works</a><a href="#workflow">Workflow</a>
+      <a href="#example">Example</a><a href="#related">Related Systems</a>
+    </aside>
+
+    <article class="article">
+      <section id="overview">
+        <div class="kicker">01 Overview</div><h2>系統概述</h2>
+        <p>AI Director 不直接控制角色移動、碰撞或傷害計算，而是處理需要語意理解與生成能力的內容，例如任務敘事、支線事件、NPC 訊息與風險提示。</p>
+      </section>
+
+      <section id="purpose">
+        <div class="kicker">02 Purpose</div><h2>為什麼需要 AI Director？</h2>
+        <p>固定事件容易在重複遊玩後失去新鮮感。AI Director 可以根據目前狀態調整事件內容，使玩家在不同資源與風險條件下得到不同選擇。</p>
+      </section>
+
+      <section id="how">
+        <div class="kicker">03 How It Works</div><h2>輸入資訊</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Game State</th><th>用途</th></tr></thead>
+            <tbody>
+              <tr><td>HP / 傷勢</td><td>調整事件風險與建議內容。</td></tr>
+              <tr><td>背包容量</td><td>判斷玩家是否仍有空間接受搜刮型支線。</td></tr>
+              <tr><td>位置</td><td>限制事件只能發生在合理區域。</td></tr>
+              <tr><td>任務進度</td><td>避免重複或矛盾任務。</td></tr>
+              <tr><td>剩餘時間</td><td>影響事件長度與撤離風險。</td></tr>
+              <tr><td>基地資源</td><td>影響下一局主要任務方向。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="workflow">
+        <div class="kicker">04 Workflow</div><h2>AI Director 流程</h2>
+        <div class="diagram">
+          <div class="diagram-row">
+            <div class="diagram-box game">Current Game State</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box ai">AI Director</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box">Event / Quest</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box warn">玩家選擇</div><div class="diagram-arrow">→</div>
+            <div class="diagram-box game">State Update</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="example">
+        <div class="kicker">05 Example</div><h2>不同狀態，不同事件</h2>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>狀態 A：資源充足</h3>
+            <p>HP 90%、背包 4/12、剩餘 15 分鐘。</p>
+            <div class="notice">可能事件：附近收到高價值研究資料訊號，是否前往調查？</div>
+          </div>
+          <div class="card">
+            <h3>狀態 B：高風險</h3>
+            <p>HP 25%、背包 11/12、剩餘 3 分鐘。</p>
+            <div class="notice">可能事件：附近敵對活動增加，目前撤離路線仍可使用。</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="related">
+        <div class="kicker">06 Related Systems</div><h2>相關系統</h2>
+        <div class="actions">
+          <a class="btn btn-secondary" href="architecture.html">Tool Use / Planning / Reflection</a>
+          <a class="btn btn-secondary" href="gameplay.html">核心遊戲循環</a>
+        </div>
+      </section>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <strong>Project E.X.I.T.</strong><br>
+      <span>AI-Driven Extraction Survival Game Design Wiki</span>
+    </div>
+    <div>© <span data-year></span> Project E.X.I.T. · Built for GitHub Pages</div>
+  </div>
+</footer>
+<button class="back-top" aria-label="回到頁首">↑</button>
+<script src="../js/main.js"></script>
+
+</body>
+</html>
