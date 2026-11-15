@@ -12,7 +12,7 @@ Project E.X.I.T. Game Design Wiki 是一個用來整理「AI 驅動 2D 撤離生
 
 1. 清楚呈現 Project E.X.I.T. 的遊戲設計與 AI 架構。
 2. 讓不同頁面保持一致的資訊結構與視覺風格。
-3. 讓 AI 能依規則新增 Game System、AI System、World、NPC、Map 或 Development 頁面。
+3. 讓 AI 能依規則新增 Game System、AI System、Architecture、World、NPC、Map 或 Development 頁面。
 4. 保持網站為純靜態 GitHub Pages 可部署專案。
 5. 避免為單一頁面加入不必要的新框架或破壞全站一致性。
 
@@ -174,7 +174,24 @@ HTML 內容頁檔名：
 6. AI Prompt Rules
 7. Related Quests
 
-### 7.4 Development Page
+### 7.4 Architecture Page
+
+適用：
+- AI Architecture
+- System Architecture
+- Technical Architecture
+
+固定內容：
+
+1. Overview
+2. System Layers
+3. Technologies / Components
+4. Workflow / Diagram
+5. Example
+6. System Boundary
+7. Related Content
+
+### 7.5 Development Page
 
 適用：
 - Roadmap
@@ -381,7 +398,7 @@ AI 修改頁面時必須：
 - [ ] 是否重用既有 CSS？
 - [ ] 是否保留 Header / Footer？
 - [ ] 新頁面是否可由站內其他頁面到達？
-- [ ] Related Systems 是否正確？
+- [ ] Related Systems / Related Content 是否正確？
 - [ ] 相對路徑是否正確？
 - [ ] 是否將 Planned 功能誤寫為完成？
 - [ ] 手機版是否仍可閱讀？
